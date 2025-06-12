@@ -1,21 +1,39 @@
 .navbar {
-  background-color: #2a2a2a;
-  border-bottom: 1px solid #e6d4a3;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.navbar-brand, .nav-link {
-  color: #ffffff !important;
+.navbar-brand {
   font-family: 'Cinzel', serif;
-  font-size: 1.1rem;
-}
-
-.navbar-brand:hover, .nav-link:hover {
-  color: #e6d4a3 !important;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .text-gold {
   color: #e6d4a3;
+  transition: color 0.3s ease;
+}
+
+.text-gold:hover {
+  color: #f4ecd8;
+  text-shadow: 0 0 10px rgba(230, 212, 163, 0.7);
+}
+
+.nav-link {
+  font-family: 'Cinzel', serif;
+  color: #e6d4a3 !important;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #f4ecd8 !important;
+  text-shadow: 0 0 10px rgba(230, 212, 163, 0.7);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(230, 212, 163, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler {
+  border-color: #e6d4a3;
 }
