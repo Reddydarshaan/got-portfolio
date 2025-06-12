@@ -1,0 +1,82 @@
+.about-section {
+  background-color: transparent;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e6d4a3;
+  opacity: 0; /* Start hidden for animation */
+  animation: fadeInDown 1s ease-out forwards; /* Fade in and slide down */
+  animation-delay: 0.2s; /* Slight delay for staggered effect */
+}
+
+.parchment {
+  background-color: #f4ecd8;
+  color: #333;
+  border: 2px solid #e6d4a3;
+  position: relative; /* For text reveal animation */
+  opacity: 0; /* Start hidden for animation */
+  animation: scrollUnroll 1.5s ease-out forwards; /* Scroll unroll effect */
+  animation-delay: 0.5s; /* Delayed after the heading */
+}
+
+/* Style the paragraph inside parchment */
+.parchment p {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  position: relative; /* For text reveal animation */
+  overflow: hidden; /* Hide the reveal overlay */
+}
+
+/* Text reveal overlay */
+.parchment p::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f4ecd8; /* Match parchment background */
+  animation: revealText 2s ease forwards;
+  animation-delay: 1s; /* Start after scroll unroll */
+}
+
+/* Animation: Fade in and slide down for the heading */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation: Scroll unroll effect for the parchment */
+@keyframes scrollUnroll {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    opacity: 0.5;
+    transform: scaleY(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* Animation: Text reveal (like writing with a quill) */
+@keyframes revealText {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}

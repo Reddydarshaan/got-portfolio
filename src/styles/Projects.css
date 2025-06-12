@@ -1,0 +1,126 @@
+.projects-section {
+  background-color: transparent; /* Changed to transparent to show Spline background */
+}
+
+.projects-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e6d4a3;
+  opacity: 0; /* Start hidden for animation */
+  animation: fadeInDown 1s ease-out forwards; /* Fade in and slide down */
+  animation-delay: 0.2s; /* Slight delay for staggered effect */
+}
+
+.parchment {
+  background-color: #f4ecd8;
+  color: #333;
+  border: 2px solid #e6d4a3;
+}
+
+.card-title {
+  color: #e6d4a3; /* Gold color to highlight */
+  font-family: 'Cinzel', serif;
+  background-color: #2a2a2a; /* Dark background for contrast */
+  padding: 5px 10px; /* Padding for the highlight effect */
+  border-radius: 3px; /* Rounded corners for the background */
+  display: inline-block; /* Ensures the background fits the text */
+  position: relative; /* For glowing effect */
+  animation: glowTitle 2s ease-in-out infinite; /* Glowing effect */
+}
+
+.card-text {
+  color: #333;
+  font-family: 'Cinzel', serif;
+}
+
+/* Scroll container styling */
+.scroll-container {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* Scroll image styling */
+.scroll-image {
+  width: 150px; /* Adjust size as needed */
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.scroll-container:hover .scroll-image {
+  animation: shakeScroll 0.5s ease infinite; /* Shake on hover */
+}
+
+/* Scroll label styling */
+.scroll-label {
+  color: #e6d4a3;
+  font-family: 'Cinzel', serif;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+/* Project card animation */
+.project-card {
+  opacity: 0;
+  animation: scrollUnroll 1s ease-out forwards; /* Enhanced scroll unroll effect */
+}
+
+/* Animation: Fade in and slide down for the heading */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation: Shake effect for scroll on hover */
+@keyframes shakeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+  50% {
+    transform: translateX(5px) rotate(5deg);
+  }
+  75% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Animation: Enhanced scroll unroll for project card */
+@keyframes scrollUnroll {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    opacity: 0.5;
+    transform: scaleY(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* Animation: Glowing effect for card title */
+@keyframes glowTitle {
+  0% {
+    box-shadow: 0 0 5px rgba(230, 212, 163, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(230, 212, 163, 1);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(230, 212, 163, 0.5);
+  }
+}

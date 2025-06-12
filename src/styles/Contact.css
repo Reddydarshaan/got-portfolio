@@ -1,0 +1,138 @@
+.contact-section {
+  background-color: transparent; /* Transparent to show Spline background */
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e6d4a3; /* Gold heading */
+  opacity: 0; /* Start hidden */
+}
+
+/* Trigger animation when section is visible */
+.contact-section.animate h2 {
+  animation: fadeInDown 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.contact-info.parchment {
+  background-color: #f4ecd8; /* Parchment background */
+  color: #333;
+  border: 2px solid #e6d4a3; /* Gold border */
+  opacity: 0; /* Start hidden */
+}
+
+/* Trigger animation when section is visible */
+.contact-section.animate .contact-info.parchment {
+  animation: scrollUnroll 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.contact-info h3 {
+  font-family: 'Cinzel', serif;
+  color: #e6d4a3;
+  background-color: #2a2a2a;
+  padding: 5px 10px;
+  border-radius: 3px;
+  display: inline-block;
+  opacity: 0;
+}
+
+/* Trigger animation when section is visible */
+.contact-section.animate .contact-info h3 {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.contact-list {
+  margin: 0;
+  padding: 0;
+}
+
+.contact-item {
+  margin-bottom: 15px;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  opacity: 0; /* Start hidden */
+}
+
+/* Trigger animation when section is visible */
+.contact-section.animate .contact-item {
+  animation: ravenDelivery 1.2s ease-out forwards;
+  animation-delay: calc(1.5s + var(--contact-index) * 0.3s);
+}
+
+/* Set a custom property for staggering */
+.contact-item:nth-child(1) { --contact-index: 1; }
+.contact-item:nth-child(2) { --contact-index: 2; }
+.contact-item:nth-child(3) { --contact-index: 3; }
+.contact-item:nth-child(4) { --contact-index: 4; }
+
+.contact-label {
+  color: #333;
+  font-weight: bold;
+}
+
+.contact-value {
+  color: #2d2102;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.contact-value:hover {
+  color: #382a08;
+  text-shadow: 0 0 10px rgba(6, 4, 0, 0.7);
+  transform: translateY(-2px);
+  display: inline-block; /* For transform to work */
+}
+
+/* Animation: Fade in and slide down for the heading */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation: Scroll unroll effect for the contact info */
+@keyframes scrollUnroll {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    opacity: 0.5;
+    transform: scaleY(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* Animation: Simple fade-in for the subheading */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animation: Contact item delivery effect (without raven) */
+@keyframes ravenDelivery {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

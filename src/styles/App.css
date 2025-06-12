@@ -1,0 +1,39 @@
+.App {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Spline background */
+.spline-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1; /* Ensure the background is behind all content */
+}
+
+/* Increase brightness of the Spline scene */
+.spline-background > * {
+  filter: brightness(1.5); /* Increase brightness by 50% */
+}
+
+/* Scrollable content */
+.content {
+  position: relative;
+  z-index: 1; /* Ensure content is above the background */
+  width: 100%;
+}
+
+/* Adjusted overlay for better visibility */
+.content::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Reduced opacity for better visibility */
+  z-index: -1; /* Behind the content, above the Spline background */
+}

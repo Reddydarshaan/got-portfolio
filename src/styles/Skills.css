@@ -1,0 +1,203 @@
+.skills-section {
+  background-color: transparent; /* Transparent to show Spline background */
+}
+
+.skills-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e6d4a3; /* Gold heading */
+  opacity: 0; /* Start hidden for animation */
+  animation: fadeInDown 1s ease-out forwards; /* Fade in and slide down */
+  animation-delay: 0.2s; /* Slight delay for staggered effect */
+}
+
+.skill-item {
+  background-color: #f4ecd8; /* Parchment background */
+  color: #333;
+  border: 2px solid #e6d4a3; /* Gold border */
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  position: relative; /* For pseudo-elements and effects */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, text-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+  opacity: 0; /* Start hidden for animation */
+  animation: fadeInScale 0.8s ease-out forwards; /* Staggered fade-in with scale */
+  animation-delay: calc(0.3s + var(--skill-index) * 0.1s); /* Staggered delay */
+  /* Engraved text effect */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3), -1px -1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* Set a custom property for staggering */
+.skill-item:nth-child(1) { --skill-index: 1; }
+.skill-item:nth-child(2) { --skill-index: 2; }
+.skill-item:nth-child(3) { --skill-index: 3; }
+.skill-item:nth-child(4) { --skill-index: 4; }
+.skill-item:nth-child(5) { --skill-index: 5; }
+.skill-item:nth-child(6) { --skill-index: 6; }
+.skill-item:nth-child(7) { --skill-index: 7; }
+.skill-item:nth-child(8) { --skill-index: 8; }
+.skill-item:nth-child(9) { --skill-index: 9; }
+.skill-item:nth-child(10) { --skill-index: 10; }
+.skill-item:nth-child(11) { --skill-index: 11; }
+.skill-item:nth-child(12) { --skill-index: 12; }
+.skill-item:nth-child(13) { --skill-index: 13; }
+.skill-item:nth-child(14) { --skill-index: 14; }
+.skill-item:nth-child(15) { --skill-index: 15; }
+
+/* Hover effects */
+.skill-item:hover {
+  transform: translateY(-5px) scale(1.05) rotate(2deg); /* Lift, scale, and slight rotate */
+  box-shadow: 0 0 20px rgba(230, 212, 163, 1); /* Stronger gold glow */
+  color: #e6d4a3; /* Gold text on hover */
+  text-shadow: 0 0 10px rgba(230, 212, 163, 0.7), 2px 2px 2px rgba(0, 0, 0, 0.5); /* Enhanced glowing text with engraved effect */
+  background-color: #e6d4a3; /* Background changes to gold */
+  border-color: #2a2a2a; /* Border darkens for contrast */
+  animation: backgroundPulse 1s ease infinite, forgeBorder 1.5s ease infinite; /* Background pulse and border forge effect */
+}
+
+/* Weapon spark effect on hover */
+.skill-item:hover::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: #e6d4a3;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(230, 212, 163, 1);
+  animation: spark 0.5s ease infinite;
+  transform: translateX(-50%);
+}
+
+/* Smoke/flame effect on hover */
+.skill-item:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: rgba(230, 212, 163, 0.3);
+  border-radius: 50%;
+  animation: smokeRise 1s ease infinite;
+  transform: translateX(-50%);
+}
+
+/* Pulse effect on load */
+.skill-item::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(230, 212, 163, 0.5);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-out;
+  animation-delay: calc(0.3s + var(--skill-index) * 0.1s);
+  transform: translate(-50%, -50%);
+}
+
+/* Animation: Fade in and slide down for the heading */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation: Staggered fade-in with scale for skill items */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation: Pulse effect for skill items on load */
+@keyframes pulse {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  50% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+}
+
+/* Animation: Background pulse on hover */
+@keyframes backgroundPulse {
+  0% {
+    background-color: #e6d4a3;
+  }
+  50% {
+    background-color: #f4ecd8;
+  }
+  100% {
+    background-color: #e6d4a3;
+  }
+}
+
+/* Animation: Forge border effect on hover */
+@keyframes forgeBorder {
+  0% {
+    border-color: #2a2a2a;
+    box-shadow: 0 0 5px rgba(230, 212, 163, 0.5);
+  }
+  50% {
+    border-color: #e6d4a3;
+    box-shadow: 0 0 15px rgba(230, 212, 163, 1);
+  }
+  100% {
+    border-color: #2a2a2a;
+    box-shadow: 0 0 5px rgba(230, 212, 163, 0.5);
+  }
+}
+
+/* Animation: Spark effect on hover */
+@keyframes spark {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
+/* Animation: Smoke/flame effect on hover */
+@keyframes smokeRise {
+  0% {
+    opacity: 0.3;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.1;
+    transform: translateX(-50%) scale(1.5) translateY(-20px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(2) translateY(-40px);
+  }
+}

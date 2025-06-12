@@ -1,0 +1,21 @@
+.navbar {
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #e6d4a3;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand, .nav-link {
+  color: #ffffff !important;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+  color: #e6d4a3 !important;
+}
+
+.text-gold {
+  color: #e6d4a3;
+}

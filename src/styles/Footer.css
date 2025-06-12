@@ -1,0 +1,12 @@
+.footer {
+  background-color: #2a2a2a;
+  border-top: 1px solid #e6d4a3;
+}
+
+.text-gold {
+  color: #e6d4a3;
+}
+
+.text-gold:hover {
+  text-decoration: underline;
+}
